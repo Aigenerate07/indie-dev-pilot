@@ -24,6 +24,7 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     rollupOptions: {
+      external: ['@supabase/supabase-js'],
       output: {
         format: 'es',
         entryFileNames: '[name].js',
