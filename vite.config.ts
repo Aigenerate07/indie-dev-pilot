@@ -20,6 +20,7 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      "@supabase/supabase-js": path.resolve(__dirname, "node_modules/@supabase/supabase-js/dist/module/index.js")
     },
   },
   build: {
@@ -29,8 +30,14 @@ export default defineConfig(({ mode }) => ({
         format: 'es',
         entryFileNames: '[name].js',
         chunkFileNames: '[name].js',
-        assetFileNames: '[name].[ext]'
+        assetFileNames: '[name].[ext]',
+        globals: {
+          '@supabase/supabase-js': 'supabase'
+        }
       }
     }
+  },
+  optimizeDeps: {
+    include: ['@supabase/supabase-js']
   }
 }));
