@@ -1,5 +1,16 @@
 {
   "framework": "vite",
   "buildCommand": "npm install --force && npm run build",
-  "installCommand": "npm install --force"
+  "installCommand": "npm install --force",
+  "headers": [
+    {
+      "source": "/(.*).js",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/javascript"
+        }
+      ]
+    }
+  ]
 } 
